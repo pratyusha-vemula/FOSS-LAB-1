@@ -182,4 +182,4 @@ example 3:wget -q http:///www.gmail.com/
 EXAMPLE :wget -o latest -h-ZIP http://github.com/gohgoio/hugo/archive/master.ZIP
 the command above will same the latest hugo ZIP file from gihub as latest -hugozip insted of its original name.
 5.creating a mirror of a website with wget,use the to create a minor of website with wget,use the -m option .This will create a complete to all copy of the website by following
-and down loading all interval link as well as the web site resource(java script,css,image
+and down loading all interval link as well as the web site resource(java script,css,image)
