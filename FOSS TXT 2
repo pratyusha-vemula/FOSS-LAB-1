@@ -1,0 +1,149 @@
+Experiment-4:
+echo "1.About your OS and version,release number,kernel version \n 2.Show all available shells \n 3.Show mouse setting \n 4.Show computer cpu informaton like processor type,speed etc \n 5.Show memory information \n 6.Show harddisk information like size of hard-disk,cache memory modeletc \n 7.File system (Mounted) \n 8.Keyboard setting"
+echo "enter option"
+read op
+case $op in
+1.)echo "OS and version,release number,kernel version"
+if [ -f/etc/os-release ]
+then
+echo "OS :"
+cat /etc/os-release
+else
+echo "enter valid option"
+fi
+;;
+2.)echo "all avaible shells"
+if [ -f/etc/shells ]
+then
+cat /etc/shells
+else
+echo "enter valid option"
+fi
+;;
+3.)echo "mouse setting"
+xinput -list-props "PixArt USB Optical Mouse"
+;;
+4.)echo "cpu information"
+if [ -f/proc/cpuinfo ]
+then
+cat /proc/cpuinfo
+else
+echo "enter valid option"
+fi
+;;
+5.)echo "memory information"
+if [ -f/proc/meminfo ]
+then
+cat /proc/meminfo
+else
+echo "enter valid information"
+fi
+;;
+6.)echo "hard disk information"
+echo "Driver :"
+if [ -f/proc/driver/rtc ]
+then
+cat /proc/driver/rtc
+else
+echo "enter valid option"
+fi
+;;
+7.)echo "file system"
+if [ -f/proc/mounts ]
+then
+cat /proc/mounts
+else
+echo "enter valid option"
+fi
+;;
+8.)echo "Keyboard setting"
+xinput -list-proc "Dell Dell USB Entey Keyboard"
+;;
+*)echo "enter valid option only"
+;;
+esac
+_________________________________________________________________________________________________________________________________________________________________________
+Experiment-5:
+ch=1
+while [ $ch -eq 1 ]
+do
+echo "enter two numbers"
+read n1 n2
+echo "1-addition\n 2-subtraction\n 3-multiplication\n 4-division\n 5-remainder"
+echo "enter option"
+read op
+case $op in
+1.)res= `expr $n1 + $n2 `
+echo "addition of $n1 and $n2 is $res"
+;;
+2.)res= `expr $n1 - $n2 `
+echo "subtraction of $n1 and $n2 is $res"
+;;
+3.)res= `expr $n1 \* $n2 `
+echo "multiplication of $n1 and $n2 is $res"
+;;
+4.)res= `expr $n1 / $n2 `
+echo "division of $n1 and $n2 is $res"
+;;
+5.)res= `expr $n1 % $n2 `
+echo "remainder of $n1 and $n2 is $res"
+;;
+*)echo "enter valid option 1-5"
+;;
+esac
+echo "enter choise to repeat 1-yes another value-no"
+read ch
+done
+________________________________________________________________________________________________________________________________________________________________________________
+Experiment-9:
+grep
+1.Case insensitive search :The -i option enables to search for a string case insensitively in the given file.It matches the word like "UNIX","Unix","unix".
+Ex:~$ grep -i "cat" exp.txt
+	for a word cat
+	cat
+	cat
+2.Displaying the count of number of matches:We can find the no.of lines that matches the given word.
+Ex:~$ grep -c "cat" exp.txt
+	3
+3.Display the file names that matches the pattern:We can just display the files that contains the given string.
+Ex:~$ grep -l "cat" *
+	grep:Desktop: Is a directory
+	grep:Documents: Is a directory
+	grep:Downloads:Is a directory
+	exp4.sh
+	exp4.sh~
+	exp.txt
+	hs-err-pid2272.log
+	kd.sh
+	kd.sh~
+	grep:Music:Is a directory
+	grep:Pictures:Is a directory  
+	grep:Public:Is a directory
+	grep:Templates:Is a directory
+4.Checking for the Whole words in a file :By Default,grep matches the given string/pattern even if it found as a substring in a file.The -w option to grep makes only the whole words.
+Ex:~$ grep -w "cat" exp.txt
+	for a word cat
+	cat is a animal
+	cat drinks milk
+5.Displaying only the matched pattern :By default ,grep displays the entire line which has the matched string.We can make the grep to display only the matched string by using the -o option.
+Ex:~$ grep -o "cat" exp.txt
+	cat
+	cat
+	cat
+6.Show line number while displaying the output using grep -n:To show the line no.of file with the matched.
+Ex:~$ grep -n "cat" exp.txt
+	3:for a word cat
+	4.cat is a animal 
+	5.cat drinks milk
+7.Inverting the pattern match:You can display the lines that are not matched with the specified search string pattern using -v option.
+Ex:~$ grep -v "cat" exp.txt
+	this is a sample program
+	for searching word in a file
+8.Matching the lines that start with a string :The ^ regular expression pattern specified the start of a line.
+Ex:~$ grep "^cat" exp.txt
+	cat is a animal
+	cat drinks milk
+9.Matching the lines that end with a string :The $ regular expression pattern specifies the end of a line.
+Ex:~$ grep "cat$" exp.txt
+	for a word cat
+_______________________________________________________________________________________________________________________________________________________________________________________________
